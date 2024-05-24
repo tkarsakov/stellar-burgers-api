@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesService {
-    private static final String CONFIG_FILENAME = "config.properties";
-    private static final String TESTDATA_FILENAME = "testdata.properties";
+    private static final String CONFIG_FILENAME = "/config.properties";
+    private static final String TESTDATA_FILENAME = "/testdata.properties";
     private static final Properties CONFIG_PROPERTIES = new Properties();
     private static final Properties TESTDATA_PROPERTIES = new Properties();
 
