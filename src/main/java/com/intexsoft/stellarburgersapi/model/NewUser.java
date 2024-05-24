@@ -1,16 +1,13 @@
 package com.intexsoft.stellarburgersapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.javafaker.Faker;
 
-@JsonIgnoreProperties(value = {"isMissingFields"})
 public class NewUser {
     private String email;
     private String password;
     private String name;
-    private Boolean isMissingFields = false;
+    private Boolean willBeRegistered = true;
 
     public NewUser(String name, String email, String password) {
         this.email = email;
@@ -28,17 +25,6 @@ public class NewUser {
                 faker.internet().emailAddress(),
                 faker.internet().password()
         );
-    }
-
-    public static String getAsJsonString(NewUser newUser) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String result;
-        try {
-            result = objectMapper.writeValueAsString(newUser);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException("Failed to parse User object into JSON string due to " + e);
-        }
-        return result;
     }
 
     public String getName() {
@@ -65,11 +51,12 @@ public class NewUser {
         this.password = password;
     }
 
-    public Boolean isMissingFields() {
-        return isMissingFields;
+    @JsonIgnore
+    public Boolean getWillBeRegistered() {
+        return willBeRegistered;
     }
 
-    public void setMissingFields(Boolean missingFields) {
-        isMissingFields = missingFields;
+    public void setWillBeRegistered(Boolean willBeRegistered) {
+        this.willBeRegistered = willBeRegistered;
     }
 }
