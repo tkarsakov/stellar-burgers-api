@@ -1,13 +1,16 @@
 package com.intexsoft.stellarburgersapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
 
+@JsonIgnoreProperties(value = {"isMissingFields"})
 public class NewUser {
     private String email;
     private String password;
     private String name;
+    private Boolean isMissingFields = false;
 
     public NewUser(String name, String email, String password) {
         this.email = email;
@@ -42,11 +45,31 @@ public class NewUser {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean isMissingFields() {
+        return isMissingFields;
+    }
+
+    public void setMissingFields(Boolean missingFields) {
+        isMissingFields = missingFields;
     }
 }
