@@ -76,4 +76,10 @@ public class Steps {
         requestBody.addParameters(JSONUtil.convertToJSONString(order));
         return requestFactory.sendRequest(POST, EndpointService.ORDERS, List.of(requestHeader, requestBody));
     }
+
+    public Response getUsersOrders(String accessToken) {
+        RequestParameter requestHeader = new RequestParameter(ParameterType.HEADER);
+        requestHeader.addParameters("Content-Type", "application/json", "Authorization", accessToken);
+        return requestFactory.sendRequest(GET, EndpointService.ORDERS, List.of(requestHeader));
+    }
 }
