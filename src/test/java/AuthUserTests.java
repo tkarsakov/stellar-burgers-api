@@ -1,18 +1,38 @@
+import com.github.javafaker.Faker;
 import com.intexsoft.stellarburgersapi.model.NewUser;
-import com.intexsoft.stellarburgersapi.model.NewUserCredentials;
-import com.intexsoft.stellarburgersapi.service.EndpointService;
+import com.intexsoft.stellarburgersapi.model.UserField;
 import com.intexsoft.stellarburgersapi.service.PropertiesFile;
 import com.intexsoft.stellarburgersapi.service.PropertiesService;
-import io.restassured.http.ContentType;
-import org.junit.After;
+import com.intexsoft.stellarburgersapi.util.JSONUtil;
+import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
-import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
+@RunWith(Parameterized.class)
 public class AuthUserTests extends BaseTest {
+
+    private static Faker faker = new Faker();
+    private final UserField field;
+    private final String data;
+
+    public AuthUserTests(UserField field, String data) {
+        this.field = field;
+        this.data = data;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] getParameters() {
+        return new Object[][]{
+                {UserField.EMAIL, faker.internet().emailAddress()},
+                {UserField.NAME, faker.name().username()}
+        };
+    }
 
     @Before
     public void setUp() {
@@ -20,68 +40,23 @@ public class AuthUserTests extends BaseTest {
     }
 
     @Test
-    public void changeUserDataWithAuth() {
-        accessToken = super.registerUser(newUser);
+    public void changeUserNameWithAuth() {
+        accessToken = requestSteps.registerUser(newUser).path("accessToken");
         String schemaLocation = PropertiesService.getProperty(PropertiesFile.TESTDATA, "user.positive-response-schema");
-        NewUserCredentials userCredentials = NewUserCredentials.buildFakeCredentials();
+        Response response = requestSteps.changeUserData(field, data, accessToken, true);
 
-        given()
-                .header("Authorization", accessToken)
-                .contentType(ContentType.JSON)
-                .body("{\"name\":" + "\"" + userCredentials.getName() + "\"}").
-                when()
-                .patch(EndpointService.AUTH_USER).
-                then()
-                .assertThat()
-                .statusCode(200).
-                and()
-                .body(matchesJsonSchemaInClasspath(schemaLocation));
-
-        given()
-                .header("Authorization", accessToken)
-                .contentType(ContentType.JSON)
-                .body("{\"email\":" + "\"" + userCredentials.getEmail() + "\"}").
-                when()
-                .patch(EndpointService.AUTH_USER).
-                then()
-                .assertThat()
-                .statusCode(200).
-                and()
-                .body(matchesJsonSchemaInClasspath(schemaLocation));
+        Assert.assertEquals(statusCodeMessage, 200, response.statusCode());
+        assertThat(bodyMessage, response.body().asString(), matchesJsonSchemaInClasspath(schemaLocation));
     }
 
     @Test
     public void changeUserDataWithoutAuth() {
-        accessToken = super.registerUser(newUser);
-        String responseLocation = PropertiesService.getProperty(PropertiesFile.TESTDATA, "user.not-authorized-response");
-        String response = super.readJsonFromPath(responseLocation);
-        NewUserCredentials userCredentials = NewUserCredentials.buildFakeCredentials();
+        accessToken = requestSteps.registerUser(newUser).path("accessToken");
+        String responsePath = PropertiesService.getProperty(PropertiesFile.TESTDATA, "user.not-authorized-response");
+        Response response = requestSteps.changeUserData(field, data, accessToken, false);
 
-        given()
-                .contentType(ContentType.JSON)
-                .body("{\"name\":" + "\"" + userCredentials.getName() + "\"}").
-                when()
-                .patch(EndpointService.AUTH_USER).
-                then()
-                .assertThat()
-                .statusCode(401).
-                and()
-                .body(equalTo(response));
-
-        given()
-                .contentType(ContentType.JSON)
-                .body("{\"email\":" + "\"" + userCredentials.getEmail() + "\"}").
-                when()
-                .patch(EndpointService.AUTH_USER).
-                then()
-                .assertThat()
-                .statusCode(401).
-                and()
-                .body(equalTo(response));
+        Assert.assertEquals(statusCodeMessage, 401, response.statusCode());
+        Assert.assertEquals(bodyMessage, JSONUtil.readJsonFromPath(responsePath), response.body().asString());
     }
 
-    @After
-    public void tearDown() {
-        super.deleteCreatedUser(accessToken);
-    }
 }
