@@ -24,7 +24,6 @@ public abstract class BaseTest {
     protected JsonSchemaFactory jsonSchemaFactory;
     protected NewUser newUser;
     protected String accessToken;
-    private String response;
 
     @BeforeClass
     public static void setUpLogging() {
@@ -67,12 +66,7 @@ public abstract class BaseTest {
     }
 
     protected void registerUserCompareResponseExpectingStatusCode(NewUser newUser, String responseLocation, Integer statusCode) {
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            response = objectMapper.readTree(new File(responseLocation)).toString();
-        } catch (IOException e) {
-            throw new RuntimeException("Cannot read response file at " + responseLocation);
-        }
+        String response = readJsonFromPath(responseLocation);
 
         given().contentType(ContentType.JSON)
                 .body(newUser).
@@ -94,5 +88,16 @@ public abstract class BaseTest {
                     .assertThat()
                     .statusCode(202);
         }
+    }
+
+    protected String readJsonFromPath(String path) {
+        String response;
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            response = objectMapper.readTree(new File(path)).toString();
+        } catch (IOException e) {
+            throw new RuntimeException("Cannot read response file at " + path);
+        }
+        return response;
     }
 }
