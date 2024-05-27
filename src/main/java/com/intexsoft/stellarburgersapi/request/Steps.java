@@ -2,6 +2,7 @@ package com.intexsoft.stellarburgersapi.request;
 
 import com.intexsoft.stellarburgersapi.model.ExistingUser;
 import com.intexsoft.stellarburgersapi.model.NewUser;
+import com.intexsoft.stellarburgersapi.model.Order;
 import com.intexsoft.stellarburgersapi.model.UserField;
 import com.intexsoft.stellarburgersapi.service.EndpointService;
 import com.intexsoft.stellarburgersapi.util.JSONUtil;
@@ -12,14 +13,14 @@ import java.util.Optional;
 
 import static com.intexsoft.stellarburgersapi.request.Method.*;
 
-public class RequestSteps {
+public class Steps {
     private final RequestFactory requestFactory = new RequestFactory();
 
     public Response registerUser(NewUser newUser) {
         RequestParameter requestBody = new RequestParameter(ParameterType.BODY);
         RequestParameter requestHeader = new RequestParameter(ParameterType.HEADER);
         requestHeader.addParameters("Content-Type", "application/json");
-        requestBody.addParameters("body", JSONUtil.convertToJSONString(newUser));
+        requestBody.addParameters(JSONUtil.convertToJSONString(newUser));
         return requestFactory.sendRequest(POST, EndpointService.AUTH_REGISTER, List.of(requestHeader, requestBody));
     }
 
@@ -27,23 +28,27 @@ public class RequestSteps {
         RequestParameter requestBody = new RequestParameter(ParameterType.BODY);
         RequestParameter requestHeader = new RequestParameter(ParameterType.HEADER);
         requestHeader.addParameters("Content-Type", "application/json");
-        requestBody.addParameters("body", JSONUtil.convertToJSONString(existingUser));
+        requestBody.addParameters(JSONUtil.convertToJSONString(existingUser));
         return requestFactory.sendRequest(POST, EndpointService.AUTH_LOGIN, List.of(requestHeader, requestBody));
     }
 
-    public Response changeUserData(UserField userField, String data, String accessToken, Boolean authenticate) {
+    public Response changeUserData(UserField userField, String data, String accessToken) {
+        RequestParameter requestBody = new RequestParameter(ParameterType.BODY);
+        RequestParameter requestHeader = new RequestParameter(ParameterType.HEADER);
+        requestHeader.addParameters("Content-Type", "application/json", "Authorization", accessToken);
+        requestBody.addParameters("{" +
+                "\"" + userField.name().toLowerCase() + "\":" + "\"" + data + "\""
+                + "}");
+        return requestFactory.sendRequest(PATCH, EndpointService.AUTH_USER, List.of(requestHeader, requestBody));
+    }
+
+    public Response changeUserData(UserField userField, String data) {
         RequestParameter requestBody = new RequestParameter(ParameterType.BODY);
         RequestParameter requestHeader = new RequestParameter(ParameterType.HEADER);
 
-        if (authenticate) {
-            requestHeader.addParameters("Content-Type", "application/json", "Authorization", accessToken);
-        } else {
-            requestHeader.addParameters("Content-Type", "application/json");
-        }
-        requestBody.addParameters("body",
-                "{" +
-                        "\"" + userField.name().toLowerCase() + "\":" + "\"" + data + "\""
-                        + "}");
+        requestBody.addParameters("{" +
+                "\"" + userField.name().toLowerCase() + "\":" + "\"" + data + "\""
+                + "}");
         return requestFactory.sendRequest(PATCH, EndpointService.AUTH_USER, List.of(requestHeader, requestBody));
     }
 
@@ -54,5 +59,21 @@ public class RequestSteps {
             return Optional.of(requestFactory.sendRequest(DELETE, EndpointService.AUTH_USER, List.of(requestHeader)));
         }
         return Optional.empty();
+    }
+
+    public Response createOrder(String accessToken, Order order) {
+        RequestParameter requestBody = new RequestParameter(ParameterType.BODY);
+        RequestParameter requestHeader = new RequestParameter(ParameterType.HEADER);
+        requestHeader.addParameters("Content-Type", "application/json", "Authorization", accessToken);
+        requestBody.addParameters(JSONUtil.convertToJSONString(order));
+        return requestFactory.sendRequest(POST, EndpointService.ORDERS, List.of(requestHeader, requestBody));
+    }
+
+    public Response createOrder(Order order) {
+        RequestParameter requestBody = new RequestParameter(ParameterType.BODY);
+        RequestParameter requestHeader = new RequestParameter(ParameterType.HEADER);
+        requestHeader.addParameters("Content-Type", "application/json");
+        requestBody.addParameters(JSONUtil.convertToJSONString(order));
+        return requestFactory.sendRequest(POST, EndpointService.ORDERS, List.of(requestHeader, requestBody));
     }
 }

@@ -1,12 +1,10 @@
 import com.github.javafaker.Faker;
-import com.intexsoft.stellarburgersapi.model.NewUser;
 import com.intexsoft.stellarburgersapi.model.UserField;
 import com.intexsoft.stellarburgersapi.service.PropertiesFile;
 import com.intexsoft.stellarburgersapi.service.PropertiesService;
 import com.intexsoft.stellarburgersapi.util.JSONUtil;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -34,26 +32,21 @@ public class AuthUserTests extends BaseTest {
         };
     }
 
-    @Before
-    public void setUp() {
-        newUser = NewUser.buildFakeUser();
-    }
-
     @Test
-    public void changeUserNameWithAuth() {
-        accessToken = requestSteps.registerUser(newUser).path("accessToken");
+    public void changeUserNameWithAuthExpectSuccess() {
+        accessToken = steps.registerUser(newUser).path("accessToken");
         String schemaLocation = PropertiesService.getProperty(PropertiesFile.TESTDATA, "user.positive-response-schema");
-        Response response = requestSteps.changeUserData(field, data, accessToken, true);
+        Response response = steps.changeUserData(field, data, accessToken);
 
         Assert.assertEquals(statusCodeMessage, 200, response.statusCode());
         assertThat(bodyMessage, response.body().asString(), matchesJsonSchemaInClasspath(schemaLocation));
     }
 
     @Test
-    public void changeUserDataWithoutAuth() {
-        accessToken = requestSteps.registerUser(newUser).path("accessToken");
+    public void changeUserDataWithoutAuthExpectFailure() {
+        accessToken = steps.registerUser(newUser).path("accessToken");
         String responsePath = PropertiesService.getProperty(PropertiesFile.TESTDATA, "user.not-authorized-response");
-        Response response = requestSteps.changeUserData(field, data, accessToken, false);
+        Response response = steps.changeUserData(field, data);
 
         Assert.assertEquals(statusCodeMessage, 401, response.statusCode());
         Assert.assertEquals(bodyMessage, JSONUtil.readJsonFromPath(responsePath), response.body().asString());

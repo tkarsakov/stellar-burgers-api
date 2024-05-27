@@ -1,23 +1,28 @@
 package com.intexsoft.stellarburgersapi.request;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RequestParameter {
     private final ParameterType parameterType;
-    private final Map<String, String> parameters = new HashMap<>();
+    private final List<String> parameters = new ArrayList<>();
 
     public RequestParameter(ParameterType parameterType) {
         this.parameterType = parameterType;
     }
 
     public void addParameters(String... kv) {
-        for (int i = 0; i < kv.length - 1; i += 2) {
-            parameters.put(kv[i], kv[i + 1]);
+        if (kv.length == 1) {
+            parameters.add(kv[0]);
+        } else {
+            for (int i = 0; i < kv.length - 1; i += 2) {
+                parameters.add(kv[i]);
+                parameters.add(kv[i + 1]);
+            }
         }
     }
 
-    public Map<String, String> getParameters() {
+    public List<String> getParameters() {
         return parameters;
     }
 

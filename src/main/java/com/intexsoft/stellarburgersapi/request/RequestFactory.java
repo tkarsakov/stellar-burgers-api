@@ -5,7 +5,6 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import java.util.List;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
@@ -30,12 +29,12 @@ public class RequestFactory {
     private void inputParameterIntoSpec(RequestSpecification requestSpecification, RequestParameter requestParameter) {
         switch (requestParameter.getParameterType()) {
             case HEADER:
-                for (Map.Entry<String, String> header : requestParameter.getParameters().entrySet()) {
-                    requestSpecification.header(new Header(header.getKey(), header.getValue()));
+                for (int i = 0; i < requestParameter.getParameters().size(); i += 2) {
+                    requestSpecification.header(new Header(requestParameter.getParameters().get(i), requestParameter.getParameters().get(i + 1)));
                 }
                 break;
             case BODY:
-                requestSpecification.body(requestParameter.getParameters().get("body"));
+                requestSpecification.body(requestParameter.getParameters().get(0));
                 break;
             default:
                 throw new RuntimeException("Parameter type not implemented");
