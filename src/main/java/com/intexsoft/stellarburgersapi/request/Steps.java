@@ -8,6 +8,7 @@ import com.intexsoft.stellarburgersapi.service.EndpointService;
 import com.intexsoft.stellarburgersapi.util.JSONUtil;
 import io.restassured.response.Response;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,5 +82,9 @@ public class Steps {
         RequestParameter requestHeader = new RequestParameter(ParameterType.HEADER);
         requestHeader.addParameters("Content-Type", "application/json", "Authorization", accessToken);
         return requestFactory.sendRequest(GET, EndpointService.ORDERS, List.of(requestHeader));
+    }
+
+    public Response getOrders() {
+        return requestFactory.sendRequest(GET, EndpointService.ORDERS, new ArrayList<>());
     }
 }
