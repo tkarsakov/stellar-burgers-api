@@ -1,0 +1,151 @@
+[ {
+  "uid" : "162aa41299d50f0d",
+  "name" : "createUniqueUserExpectSuccess",
+  "time" : {
+    "start" : 1716881988805,
+    "stop" : 1716881989866,
+    "duration" : 1061
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3fef989dfb17de06",
+  "name" : "createUserThenAttemptToCreateSameUserAgainExpectFailure",
+  "time" : {
+    "start" : 1716881987523,
+    "stop" : 1716881988802,
+    "duration" : 1279
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9f53e2b56e72e44b",
+  "name" : "changeUserDataWithoutAuthExpectFailure[1]",
+  "time" : {
+    "start" : 1716881992138,
+    "stop" : 1716881993233,
+    "duration" : 1095
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f5bb36761453be6f",
+  "name" : "createOrderWithoutIngredientsExpectFailure",
+  "time" : {
+    "start" : 1716881999669,
+    "stop" : 1716881999898,
+    "duration" : 229
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fbf7f4f537e4ce60",
+  "name" : "logInWithExistingUserExpectSuccess",
+  "time" : {
+    "start" : 1716881980709,
+    "stop" : 1716881986744,
+    "duration" : 6035
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "28300269a3c4d116",
+  "name" : "createOrderWithAuthExpectSuccess",
+  "time" : {
+    "start" : 1716881997571,
+    "stop" : 1716881999661,
+    "duration" : 2090
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "26dfc6b77dd1e123",
+  "name" : "tryToCreateUserWhileMissingFieldsExpectFailure",
+  "time" : {
+    "start" : 1716881987174,
+    "stop" : 1716881987521,
+    "duration" : 347
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b36344c83d054fbf",
+  "name" : "changeUserNameWithAuthExpectSuccess[0]",
+  "time" : {
+    "start" : 1716881991057,
+    "stop" : 1716881992135,
+    "duration" : 1078
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "636de7b6f90ecef2",
+  "name" : "logInWithInvalidUserExpectFailure",
+  "time" : {
+    "start" : 1716881986830,
+    "stop" : 1716881987158,
+    "duration" : 328
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ea4463ea4b52d2f1",
+  "name" : "changeUserNameWithAuthExpectSuccess[1]",
+  "time" : {
+    "start" : 1716881993236,
+    "stop" : 1716881994436,
+    "duration" : 1200
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cd29ceea277f0950",
+  "name" : "createOrderWithoutAuthExpectSuccess",
+  "time" : {
+    "start" : 1716882000578,
+    "stop" : 1716882000936,
+    "duration" : 358
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "14d5607776ce724",
+  "name" : "registerCreateOrderThenGetOrdersWithAuthExpectSuccess",
+  "time" : {
+    "start" : 1716881994964,
+    "stop" : 1716881997565,
+    "duration" : 2601
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8aab0683c214bbb9",
+  "name" : "createOrderWithWrongIngredientHashesExpectFailure",
+  "time" : {
+    "start" : 1716881999900,
+    "stop" : 1716882000569,
+    "duration" : 669
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d63b0cb87489c10c",
+  "name" : "changeUserDataWithoutAuthExpectFailure[0]",
+  "time" : {
+    "start" : 1716881989894,
+    "stop" : 1716881991055,
+    "duration" : 1161
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bb3b51f32b478917",
+  "name" : "createOrderThenGetOrdersWithoutAuthExpectFailure",
+  "time" : {
+    "start" : 1716881994440,
+    "stop" : 1716881994963,
+    "duration" : 523
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

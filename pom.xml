@@ -17,8 +17,21 @@
         <rest-assured.version>5.4.0</rest-assured.version>
         <allure-junit.version>2.27.0</allure-junit.version>
         <allure-maven.version>2.12.0</allure-maven.version>
+        <allure.version>2.25.0</allure.version>
         <aspectj.version>1.9.22.1</aspectj.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-bom</artifactId>
+                <version>${allure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -45,7 +58,6 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
             <version>${allure-junit.version}</version>
-            <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
         <dependency>
@@ -75,12 +87,18 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
+                        -Dfile.encoding=${project.build.sourceEncoding}
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <properties>

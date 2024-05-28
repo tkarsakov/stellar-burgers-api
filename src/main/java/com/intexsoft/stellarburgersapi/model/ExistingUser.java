@@ -48,4 +48,12 @@ public class ExistingUser {
         isInvalid = invalid;
     }
 
+    @Override
+    public String toString() {
+        return "ExistingUser{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isInvalid=" + isInvalid +
+                '}';
+    }
 }

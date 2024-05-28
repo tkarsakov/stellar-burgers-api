@@ -1,0 +1,101 @@
+{
+  "uid" : "162aa41299d50f0d",
+  "name" : "createUniqueUserExpectSuccess",
+  "fullName" : "AuthRegisterTests.createUniqueUserExpectSuccess",
+  "historyId" : "706fb83ec6d3f8247830ecd2b54c6515",
+  "time" : {
+    "start" : 1716881988805,
+    "stop" : 1716881989866,
+    "duration" : 1061
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя NewUser{email='marilou.altenwerth@hotmail.com', password='hq6dcw6a9lc5jj', name='sheron.hagenes', willBeRegistered=true}",
+      "time" : {
+        "start" : 1716881988817,
+        "stop" : 1716881989259,
+        "duration" : 442
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "newUser",
+        "value" : "NewUser{email='marilou.altenwerth@hotmail.com', password='hq6dcw6a9lc5jj', name='sheron.hagenes', willBeRegistered=true}"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление текущего пльзователя с токеном Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTQ1OWVkMjgwMDAxYjQxYWNiNSIsImlhdCI6MTcxNjg4MTk4OSwiZXhwIjoxNzE2ODgzMTg5fQ.d7bI-t1VseU-g5Bfg1aVb2yI3PNPyQ412_2Cm8ORyhs",
+      "time" : {
+        "start" : 1716881989276,
+        "stop" : 1716881989866,
+        "duration" : 590
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTQ1OWVkMjgwMDAxYjQxYWNiNSIsImlhdCI6MTcxNjg4MTk4OSwiZXhwIjoxNzE2ODgzMTg5fQ.d7bI-t1VseU-g5Bfg1aVb2yI3PNPyQ412_2Cm8ORyhs"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "AuthRegisterTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "createUniqueUserExpectSuccess"
+  }, {
+    "name" : "suite",
+    "value" : "AuthRegisterTests"
+  }, {
+    "name" : "host",
+    "value" : "TKARSAKOV"
+  }, {
+    "name" : "thread",
+    "value" : "17400@TKARSAKOV.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "162aa41299d50f0d.json",
+  "parameterValues" : [ ]
+}

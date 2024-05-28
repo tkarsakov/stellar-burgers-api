@@ -59,4 +59,14 @@ public class NewUser {
     public void setWillBeRegistered(Boolean willBeRegistered) {
         this.willBeRegistered = willBeRegistered;
     }
+
+    @Override
+    public String toString() {
+        return "NewUser{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", willBeRegistered=" + willBeRegistered +
+                '}';
+    }
 }
