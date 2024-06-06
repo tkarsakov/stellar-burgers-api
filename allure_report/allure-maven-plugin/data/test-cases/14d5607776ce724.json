@@ -1,0 +1,140 @@
+{
+  "uid" : "14d5607776ce724",
+  "name" : "registerCreateOrderThenGetOrdersWithAuthExpectSuccess",
+  "fullName" : "GetOrdersTests.registerCreateOrderThenGetOrdersWithAuthExpectSuccess",
+  "historyId" : "cbcb5145715c1db242bb72df33207879",
+  "time" : {
+    "start" : 1716881994964,
+    "stop" : 1716881997565,
+    "duration" : 2601
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя NewUser{email='vernon.terry@gmail.com', password='18i4mf7wmxpp', name='graham.bartoletti', willBeRegistered=true}",
+      "time" : {
+        "start" : 1716881994981,
+        "stop" : 1716881995331,
+        "duration" : 350
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "newUser",
+        "value" : "NewUser{email='vernon.terry@gmail.com', password='18i4mf7wmxpp', name='graham.bartoletti', willBeRegistered=true}"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание заказа Order{ingredients=[61c0c5a71d1f82001bdaaa6d, 61c0c5a71d1f82001bdaaa6e]} с токеном Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTRiOWVkMjgwMDAxYjQxYWNjMyIsImlhdCI6MTcxNjg4MTk5NSwiZXhwIjoxNzE2ODgzMTk1fQ.nu52hlf60tDnE4AmuXibYo2jfw2pPTgcs4nY1_5vzio",
+      "time" : {
+        "start" : 1716881995344,
+        "stop" : 1716881996492,
+        "duration" : 1148
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTRiOWVkMjgwMDAxYjQxYWNjMyIsImlhdCI6MTcxNjg4MTk5NSwiZXhwIjoxNzE2ODgzMTk1fQ.nu52hlf60tDnE4AmuXibYo2jfw2pPTgcs4nY1_5vzio"
+      }, {
+        "name" : "order",
+        "value" : "Order{ingredients=[61c0c5a71d1f82001bdaaa6d, 61c0c5a71d1f82001bdaaa6e]}"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Получение заказов пользователя с токеном Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTRiOWVkMjgwMDAxYjQxYWNjMyIsImlhdCI6MTcxNjg4MTk5NSwiZXhwIjoxNzE2ODgzMTk1fQ.nu52hlf60tDnE4AmuXibYo2jfw2pPTgcs4nY1_5vzio",
+      "time" : {
+        "start" : 1716881996492,
+        "stop" : 1716881996933,
+        "duration" : 441
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTRiOWVkMjgwMDAxYjQxYWNjMyIsImlhdCI6MTcxNjg4MTk5NSwiZXhwIjoxNzE2ODgzMTk1fQ.nu52hlf60tDnE4AmuXibYo2jfw2pPTgcs4nY1_5vzio"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление текущего пльзователя с токеном Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTRiOWVkMjgwMDAxYjQxYWNjMyIsImlhdCI6MTcxNjg4MTk5NSwiZXhwIjoxNzE2ODgzMTk1fQ.nu52hlf60tDnE4AmuXibYo2jfw2pPTgcs4nY1_5vzio",
+      "time" : {
+        "start" : 1716881996942,
+        "stop" : 1716881997565,
+        "duration" : 623
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTRiOWVkMjgwMDAxYjQxYWNjMyIsImlhdCI6MTcxNjg4MTk5NSwiZXhwIjoxNzE2ODgzMTk1fQ.nu52hlf60tDnE4AmuXibYo2jfw2pPTgcs4nY1_5vzio"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 4,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "GetOrdersTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "registerCreateOrderThenGetOrdersWithAuthExpectSuccess"
+  }, {
+    "name" : "suite",
+    "value" : "GetOrdersTests"
+  }, {
+    "name" : "host",
+    "value" : "TKARSAKOV"
+  }, {
+    "name" : "thread",
+    "value" : "17400@TKARSAKOV.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "14d5607776ce724.json",
+  "parameterValues" : [ ]
+}

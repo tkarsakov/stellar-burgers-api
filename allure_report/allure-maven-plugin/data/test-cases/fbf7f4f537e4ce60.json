@@ -1,0 +1,119 @@
+{
+  "uid" : "fbf7f4f537e4ce60",
+  "name" : "logInWithExistingUserExpectSuccess",
+  "fullName" : "AuthLoginTests.logInWithExistingUserExpectSuccess",
+  "historyId" : "4323b38d2538f514b6d48cbd7f26f7b0",
+  "time" : {
+    "start" : 1716881980709,
+    "stop" : 1716881986744,
+    "duration" : 6035
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя NewUser{email='khalilah.jacobi@yahoo.com', password='lf6pqysi', name='jeff.brown', willBeRegistered=true}",
+      "time" : {
+        "start" : 1716881981138,
+        "stop" : 1716881984014,
+        "duration" : 2876
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "newUser",
+        "value" : "NewUser{email='khalilah.jacobi@yahoo.com', password='lf6pqysi', name='jeff.brown', willBeRegistered=true}"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Попытка лоигна пользователем с данными ExistingUser{email='khalilah.jacobi@yahoo.com', password='lf6pqysi', isInvalid=false}",
+      "time" : {
+        "start" : 1716881984897,
+        "stop" : 1716881985490,
+        "duration" : 593
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "existingUser",
+        "value" : "ExistingUser{email='khalilah.jacobi@yahoo.com', password='lf6pqysi', isInvalid=false}"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление текущего пльзователя с токеном Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTNmOWVkMjgwMDAxYjQxYWNiMCIsImlhdCI6MTcxNjg4MTk4MywiZXhwIjoxNzE2ODgzMTgzfQ.LTCS_oZreYa3Zn10onfBF4JgX6Gvy9EoELP3heRtTYQ",
+      "time" : {
+        "start" : 1716881986142,
+        "stop" : 1716881986739,
+        "duration" : 597
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTNmOWVkMjgwMDAxYjQxYWNiMCIsImlhdCI6MTcxNjg4MTk4MywiZXhwIjoxNzE2ODgzMTgzfQ.LTCS_oZreYa3Zn10onfBF4JgX6Gvy9EoELP3heRtTYQ"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "AuthLoginTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "logInWithExistingUserExpectSuccess"
+  }, {
+    "name" : "suite",
+    "value" : "AuthLoginTests"
+  }, {
+    "name" : "host",
+    "value" : "TKARSAKOV"
+  }, {
+    "name" : "thread",
+    "value" : "17400@TKARSAKOV.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "fbf7f4f537e4ce60.json",
+  "parameterValues" : [ ]
+}

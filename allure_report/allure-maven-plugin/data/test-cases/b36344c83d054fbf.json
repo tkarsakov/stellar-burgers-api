@@ -1,0 +1,125 @@
+{
+  "uid" : "b36344c83d054fbf",
+  "name" : "changeUserNameWithAuthExpectSuccess[0]",
+  "fullName" : "AuthUserTests.changeUserNameWithAuthExpectSuccess[0]",
+  "historyId" : "345bd26621573509e4ff8c4d71625f34",
+  "time" : {
+    "start" : 1716881991057,
+    "stop" : 1716881992135,
+    "duration" : 1078
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация пользователя NewUser{email='man.grady@yahoo.com', password='ba3kko42', name='jerilyn.marquardt', willBeRegistered=true}",
+      "time" : {
+        "start" : 1716881991068,
+        "stop" : 1716881991399,
+        "duration" : 331
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "newUser",
+        "value" : "NewUser{email='man.grady@yahoo.com', password='ba3kko42', name='jerilyn.marquardt', willBeRegistered=true}"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Попытка изменения поля EMAIL пользователем с токеном Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTQ3OWVkMjgwMDAxYjQxYWNiOSIsImlhdCI6MTcxNjg4MTk5MSwiZXhwIjoxNzE2ODgzMTkxfQ.i9fDk70ZrxGL0LE33F3JXEUZKkya1ei_oZpbp6c7h_g",
+      "time" : {
+        "start" : 1716881991414,
+        "stop" : 1716881991652,
+        "duration" : 238
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "userField",
+        "value" : "EMAIL"
+      }, {
+        "name" : "data",
+        "value" : "melonie.lakin@yahoo.com"
+      }, {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTQ3OWVkMjgwMDAxYjQxYWNiOSIsImlhdCI6MTcxNjg4MTk5MSwiZXhwIjoxNzE2ODgzMTkxfQ.i9fDk70ZrxGL0LE33F3JXEUZKkya1ei_oZpbp6c7h_g"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление текущего пльзователя с токеном Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTQ3OWVkMjgwMDAxYjQxYWNiOSIsImlhdCI6MTcxNjg4MTk5MSwiZXhwIjoxNzE2ODgzMTkxfQ.i9fDk70ZrxGL0LE33F3JXEUZKkya1ei_oZpbp6c7h_g",
+      "time" : {
+        "start" : 1716881991656,
+        "stop" : 1716881992135,
+        "duration" : 479
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTU4YTQ3OWVkMjgwMDAxYjQxYWNiOSIsImlhdCI6MTcxNjg4MTk5MSwiZXhwIjoxNzE2ODgzMTkxfQ.i9fDk70ZrxGL0LE33F3JXEUZKkya1ei_oZpbp6c7h_g"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "AuthUserTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "changeUserNameWithAuthExpectSuccess[0]"
+  }, {
+    "name" : "suite",
+    "value" : "AuthUserTests"
+  }, {
+    "name" : "host",
+    "value" : "TKARSAKOV"
+  }, {
+    "name" : "thread",
+    "value" : "17400@TKARSAKOV.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b36344c83d054fbf.json",
+  "parameterValues" : [ ]
+}
